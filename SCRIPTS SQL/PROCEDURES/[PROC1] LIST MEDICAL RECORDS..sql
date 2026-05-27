@@ -27,8 +27,8 @@ BEGIN
 		PRINT REPLICATE('-', 40)
 
 		SELECT @list = @list + CHAR(9) + cast(Number as char(4)) + CAST(IssueDescription AS CHAR(55)) + CHAR(10) +
-		CHAR(9) + CHAR(9) + 'Medication: ' + CAST(Medication AS CHAR(25)) + CHAR(10) +
-		CHAR(9) + CHAR(9) + 'Special Needs: ' + CAST(SpecialNeeds AS CHAR(35)) + CHAR(10) + CHAR(10)
+		CHAR(9) + CHAR(9) + 'Medication: ' + CAST(ISNULL(Medication, 'None') AS CHAR(25)) + CHAR(10) +
+		CHAR(9) + CHAR(9) + 'Special Needs: ' + CAST(ISNULL(SpecialNeeds, 'None') AS CHAR(35)) + CHAR(10) + CHAR(10)
 		FROM MEDICAL_ISSUE
 		WHERE ChildID = @childID
 
