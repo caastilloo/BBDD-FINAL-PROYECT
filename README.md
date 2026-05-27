@@ -8,25 +8,28 @@ Relational database project for managing a summer camp for teenagers aged 12–1
  
 ```
 ├── DOCS/
-│   ├── Queenswood Summer Camp.pdf          # Project specification
+│   ├── QUEENSWOOD SUMMER CAMP.pdf            # Project specification
 │   └── DATABASE DESIGN PHASE/
-│       ├── ER Diagram                      # Entity-relationship diagram (DIA)
-│       └── Relational Model                # Derived relational schema
+│       ├── [DIA] DIAGRAMA ER.dia             # Editable ER diagram (DIA format)
+│       ├── [IMG] ER DIAGRAM.png              # Entity-relationship diagram
+│       ├── [IMG] Relational Model.png        # Derived relational schema
+│       ├── [IMG] SQL DIAGRAM.png             # SQL Server database diagram
+│       └── [PDF] ER DIAGRAM.pdf              # ER diagram in PDF format
 │
 └── SCRIPTS SQL/
     ├── SETUP/
-    │   ├── [SCRIPT] - TABLES GENERATOR.sql   # Table creation with constraints
-    │   └── [SCRIPT] - DATA GENERATOR.sql     # Sample data for testing
+    │   ├── [SCRIPT] TABLES GENERATOR.sql     # Table creation with constraints
+    │   └── [SCRIPT] DATA GENERATOR.sql       # Sample data for testing
     ├── TRIGGERS/
-    │   ├── [TRIG1] - ASSIGN CABIN.sql
-    │   ├── [TRIG2] - UPDATE EMPLOYEE ACTIVITY.sql
-    │   ├── [TRIG3] - UPDATE BONUS TUTOR.sql
-    │   └── [TRIG4] - APPLY ACTIVITY.sql
+    │   ├── [TRIG1] ASSIGN CABIN.sql
+    │   ├── [TRIG2] UPDATE EMPLOYEE ACTIVITY.sql
+    │   ├── [TRIG3] UPDATE BONUS TUTOR.sql
+    │   └── [TRIG4] APPLY ACTIVITY.sql
     └── PROCEDURES/
-        ├── [PROC1] - LIST MEDICAL RECORDS.sql
-        ├── [PROC2] - ACTIVITIES TYPE.sql
-        ├── [PROC3] - CABIN CHILDREN.sql
-        └── [PROC4] - EMPLOYEES SALARY.sql
+        ├── [PROC1] LIST MEDICAL RECORDS.sql
+        ├── [PROC2] ACTIVITIES TYPE.sql
+        ├── [PROC3] CABIN CHILDREN.sql
+        └── [PROC4] EMPLOYEES SALARY.sql
 ```
  
 ---
@@ -38,7 +41,7 @@ The database manages the following entities:
 | Entity | Description |
 |---|---|
 | `EMPLOYEE` | Camp staff with position, salary and bonus tracking |
-| `CABIN` | Cabins by gender with a assigned tutor |
+| `CABIN` | Cabins by gender with an assigned tutor |
 | `CHILD` | Enrolled campers, automatically assigned to a cabin |
 | `PARENT` | Parents or guardians linked to each child |
 | `MEDICAL_ISSUE` | Medical records per child |
@@ -77,9 +80,9 @@ The database manages the following entities:
    ```sql
    CREATE DATABASE QUEENSWOOD_SUMMER_CAMP;
    ```
-3. Run `SETUP/SCRIPT - TABLES GENERATOR.sql` to create all tables and constraints.
+3. Run `SETUP/[SCRIPT] TABLES GENERATOR.sql` to create all tables and constraints.
 4. Run the scripts in `TRIGGERS/` and `PROCEDURES/` in any order to create all objects.
-5. Run `SETUP/SCRIPT - DATA GENERATOR.sql` to populate the database with sample data.
+5. Run `SETUP/[SCRIPT] DATA GENERATOR.sql` to populate the database with sample data.
 6. Test the procedures:
    ```sql
    EXEC LIST_MEDICAL_RECORDS
@@ -89,6 +92,9 @@ The database manages the following entities:
    EXEC CABIN_CHILDREN 'M'
    EXEC EMPLOYEES_SALARY
    ```
+ 
+> To test trigger rollbacks, uncomment the corresponding test cases at the bottom of `[SCRIPT] DATA GENERATOR.sql`.
+ 
 ---
  
 ## 🛠️ Built With
